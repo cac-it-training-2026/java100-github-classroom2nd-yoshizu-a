@@ -39,10 +39,25 @@ public class WarehouseManager {
 
 		int[] ABKosanArray = new int[5];
 
-
 		//ここに重複チェックおよび値の代入処理を記述する
+		int num = 0;
+		boolean flag = false;
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			do {
+				flag = false;
+				num = (int) (Math.random() * 10) % 5 + 1;
 
+				for (int j = 0; j < ABKosanArray.length; j++) {
+					if (ABKosanArray[j] == num) {
+						flag = true;
+						break;
+					}
+				}
+			} while (flag);
 
+			ABKosanArray[i] = num;
+
+		}
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の入れ替えをお願いします。\n");
 
@@ -56,16 +71,45 @@ public class WarehouseManager {
 			}
 		}
 		System.out.println("\nです。\n");
-
-
+		int[] newABKousanArray = new int[4];
 		//ここに値の入れ替え処理を記述する
 
+		int[] changeIndexArray = new int[4]; //←入れ替え後の配列を用意
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			if (ABKosanArray[i] == 1) {
+				changeIndexArray[0] = i;
 
+			} else if (ABKosanArray[i] == 2) {
+				changeIndexArray[1] = i;
+
+			} else if (ABKosanArray[i] == 3) {
+				changeIndexArray[2] = i;
+
+			} else if (ABKosanArray[i] == 4) {
+				changeIndexArray[3] = i;
+			} //5の位置は固定のため記述しなくてよい
+		}
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			if (changeIndexArray[0] == i) {
+				ABKosanArray[i] = 3;//1と3を入れ替えている
+
+			} else if (changeIndexArray[1] == i) {
+				ABKosanArray[i] = 4;//2と4を入れ替えている
+
+			} else if (changeIndexArray[2] == i) {
+				ABKosanArray[i] = 1;
+
+			} else if (changeIndexArray[3] == i) {
+				ABKosanArray[i] = 2;
+			}
+		}
 		System.out.println("入れ替え後の状態は、");
+
 		for (int i = 0; i < ABKosanArray.length; i++) {
 			System.out.print(ABKosanArray[i]);
+
 			if (i != (ABKosanArray.length - 1)) {
-				System.out.print(",");
+				System.out.print(",");//カンマの数を示す
 			}
 		}
 		System.out.println("\nです。");
