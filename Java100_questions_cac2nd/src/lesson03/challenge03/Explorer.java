@@ -42,14 +42,15 @@ public class Explorer {
 		int nauticalMile = 500;
 		int apsedTime = 0;
 
-		//ここにwhile文を記述する。
+		//ここにwhile文を記述する。1時間22マイル進む船が500マイルには23時間かかる。
+		while (apsedTime < 23) {
 
 			nauticalMile -= 22;
 			System.out.println("隊長：");
 			System.out.println((apsedTime += 1) + "時間たったよ\n");
 
-		//ここに  } を記述する。
-
+			//ここに  } を記述する。
+		}
 		System.out.println("到着！");
 
 	}

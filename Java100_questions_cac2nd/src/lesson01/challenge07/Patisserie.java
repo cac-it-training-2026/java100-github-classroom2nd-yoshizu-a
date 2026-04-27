@@ -41,6 +41,44 @@
 
 package lesson01.challenge07;
 
-public class Patisserie {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
+public class Patisserie {
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("それぞれ何個ずつ買いますか？(最大30個まで)");
+
+		String str1 = reader.readLine();
+		String str2 = reader.readLine();
+		String str3 = reader.readLine();
+
+		System.out.println("\nシトロン     " + str1 + "個");
+		System.out.println("ショコラ     " + str2 + "個");
+		System.out.println("ピスタージュ " + str3 + "個");
+
+		double dnum1 = Double.parseDouble(str1);
+		double dnum2 = Double.parseDouble(str2);
+		double dnum3 = Double.parseDouble(str3);
+
+		int cito = (int) (30 - dnum1);
+		int choco = (int) (30 - dnum2);
+		int pis = (int) (30 - dnum3);
+
+		double dtotal = (250 * dnum1 + 280 * dnum2 + 320 * dnum3);
+		int itotal = (int) (dtotal);
+
+		System.out.println("\n合計個数  " + (dnum1 + dnum2 + dnum3) + "個");
+		System.out.println("合計金額  " + itotal + "円");
+
+		System.out.println("\nをお買いあげですね。");
+		System.out.println("承りました。");
+
+		System.out.println("\n本日のおすすめ商品です。");
+		System.out.println("\nシトロン     \\250・・・残り" + cito + "個");
+		System.out.println("ショコラ     \\280・・・残り" + choco + "個");
+		System.out.println("ピスタージュ \\320・・・残り" + pis + "個");
+
+	}
 }
